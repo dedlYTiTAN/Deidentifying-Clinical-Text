@@ -37,4 +37,3 @@ The data used in this notebook is synthetic and intended purely for learning and
 
 The notebook is not a production-ready de-identification solution and should not be applied directly to real patient data without rigorous privacy, legal and ethical review.
 
-License
