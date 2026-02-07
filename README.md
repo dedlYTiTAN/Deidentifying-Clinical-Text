@@ -1,35 +1,40 @@
 # De-identifying Clinical Text
+This project contains a Jupyter notebook (Coding.ipynb) that works with a synthetic clinical dataset and demonstrates how to analyse and model de-identified health records while preserving data utility.
 
-This project demonstrates an end-to-end pipeline for de-identifying clinical free text, removing or masking Protected Health Information (PHI) so that clinical notes can be reused for analytics and research while preserving patient privacy.
+# Project Overview
+Uses synthetic patient-level data with fields such as Patient_ID, Age, Gender, Medical_Condition, Treatment, Outcome, Insurance_Type, Income, Region, Smoking_Status, Admission_Type, Hospital_ID, and Length_of_Stay.
 
-# Goals
-Detect PHI entities (such as patient names, dates, locations, contact details, and IDs) in clinical text using NLP techniques.
+Performs exploratory data analysis (EDA) to understand distributions (count, mean, standard deviation, min, max, and quartiles) for key numeric variables.
 
-Apply redaction or replacement strategies to generate a de-identified version of the input notes.
+Shows example patient rows combining demographics, clinical variables and hospital-related information.
 
-Provide a clear, reproducible example of a de-identification workflow inside a single notebook (Coding.ipynb).
+Trains a machine learning model on the dataset and reports training and validation loss over several epochs.
 
-# Methods
-**Preprocessing:** basic text cleaning, normalisation, tokenisation, and sentence splitting.
+# Notebook Contents
+Coding.ipynb typically includes:
 
- **PHI detection**:
+Data loading and basic cleaning of the synthetic clinical dataset.
 
-Rule-based regular expressions for emails, phone numbers, dates, postcodes, IDs.
+Descriptive statistics tables for numeric features (e.g. Age, Income, Hospital_ID, Length_of_Stay).
 
-Optional dictionaries or lookup lists for hospitals, locations, and organisations.
+Display of a sample of patient records to illustrate the structure and types of variables.
 
-Optional NER model (e.g., spaCy/transformers) for names, organisations, and other entities.
+Feature preparation for modelling (encoding categorical features and scaling/processing numeric ones).
 
-**De-identification strategies:**
+Model training section, logging Epoch, Training Loss and Validation Loss to monitor learning progress.
 
-Simple redaction with placeholders, e.g. [NAME], [DATE], [HOSPITAL], [ID].
+# How to Use This Notebook
+Explore the synthetic dataset and understand each column’s meaning and distribution.
 
-# Repository Contents
+Experiment with simple de-identification strategies (e.g. removing or transforming Patient_ID, bucketing Age, banding Income, or generalising regions).
 
-Coding.ipynb – main notebook containing the complete de-identification pipeline (load text, detect PHI, mask/replace, and export results).
+Train and evaluate a predictive model (for example, predicting Length_of_Stay or another target) using the prepared features.
 
-data/ – sample clinical-style notes (synthetic or pre-de-identified examples).
+Observe how changes in preprocessing or de-identification affect model performance.
 
-models/ – any saved NER or language models used in the notebook (if applicable).
+# Disclaimer
+The data used in this notebook is synthetic and intended purely for learning and experimentation.
 
-README.md – project documentation.
+The notebook is not a production-ready de-identification solution and should not be applied directly to real patient data without rigorous privacy, legal and ethical review.
+
+License
