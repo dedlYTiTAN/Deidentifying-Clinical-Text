@@ -1,5 +1,40 @@
-# Deidentifying-Clinical-Text
-The wide adoption of EHRs is now enabling advanced data analytics, personalized care, and improvements in patient outcomes. However, sharing clinical text for research raises significant privacy concerns because, to share clinical text, sensitive details called Protected Health Information (PHI) must be removed under regulations such as HIPAA and GDPR. In this report, we will demonstrate an automated PHI de-identification system built with SpaCy's NER. Our approach identifies and masks such PHI entities as patient ID, medical conditions, or hospital names, so that the data remains secure yet usable for further analysis.
-We have trained and tested our model using synthetic clinical datasets, not exposing any real patient information. This approach led to a high F1-score of 0.94 in accurately detecting PHI. To facilitate practical use, we integrated the system with a Gradio-based interface that allows users to interact in real time just by inputting clinical text and receiving de-identified outputs immediately.
-A comparison done with a transformer-based model, DistilBERT, while probably having much deeper contextual understanding, necessitated additional fine-tuning and was less effective for real-time tasks. SpaCy demonstrated very good speed and responsiveness in comparison and thus appeared much more suitable for on-the-fly PHI de-identification.
-Overall, this project proves that it is possible to share EHR data in a privacy-compliant manner with no loss of value for research and analytics, moving us closer to a data-driven future with a keen eye on privacy in healthcare.
+De-identifying Clinical Text
+
+This project demonstrates an end-to-end pipeline for de-identifying clinical free text, removing or masking Protected Health Information (PHI) so that clinical notes can be reused for analytics and research while preserving patient privacy.
+
+Goals
+Detect PHI entities (such as patient names, dates, locations, contact details, and IDs) in clinical text using NLP techniques.
+
+Apply redaction or replacement strategies to generate a de-identified version of the input notes.
+
+Provide a clear, reproducible example of a de-identification workflow inside a single notebook (Coding.ipynb).
+
+Methods
+(Adjust this section so it reflects what you actually implemented.)
+
+Preprocessing: basic text cleaning, normalisation, tokenisation, and sentence splitting.
+
+PHI detection:
+
+Rule-based regular expressions for emails, phone numbers, dates, postcodes, IDs.
+
+Optional dictionaries or lookup lists for hospitals, locations, and organisations.
+
+Optional NER model (e.g., spaCy/transformers) for names, organisations, and other entities.
+
+De-identification strategies:
+
+Simple redaction with placeholders, e.g. [NAME], [DATE], [HOSPITAL], [ID].
+
+Or consistent surrogate replacement (e.g. realistic but fake names and shifted dates), if implemented.
+
+Repository Contents
+(Adapt to match your actual structure.)
+
+Coding.ipynb – main notebook containing the complete de-identification pipeline (load text, detect PHI, mask/replace, and export results).
+
+data/ – sample clinical-style notes (synthetic or pre-de-identified examples).
+
+models/ – any saved NER or language models used in the notebook (if applicable).
+
+README.md – project documentation.
